@@ -1,0 +1,16 @@
+
+  <div class="container">
+    <div class="column-center">
+      <ul>
+        <% @photos.each do |photo| %>
+          <li>
+            <%= link_to photo.title, photo_path(photo) %><br>
+            <%= image_tag photo.image.url(:medium) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="column-left">
+      <%= link_to "Upload your image", new_photo_path %>
+    </div>
+  </div>

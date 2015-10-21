@@ -1,0 +1,7 @@
+<h1><%= @photo.title %></h1>
+
+<%= image_tag @photo.image.url(:large) %>
+
+<p><%= @photo.description %><p>
+
+<p><%= link_to "Return to lists", photos_path %></p>
