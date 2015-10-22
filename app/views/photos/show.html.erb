@@ -1,7 +1,25 @@
-<h1><%= @photo.title %></h1>
+<div class="container">
+  <div class="column-center">
+    <h1><%= @photo.title %></h1>
+    <%= image_tag @photo.image.url(:large) %>
+    <p><%= @photo.description %></p>
+  </div>
 
-<%= image_tag @photo.image.url(:large) %>
+  <div class="column-left">
+  </div>
 
-<p><%= @photo.description %><p>
+  <div class = "column-right">
+    <% @photo.users.each do |user| %>
+      <li>
+        <% user.username %>
+      </li>
+    <% end %>
 
-<p><%= link_to "Return to lists", photos_path %></p>
+
+    <p align="center"><%= link_to "Edit Photo", edit_photo_path(@photo) %></p>
+    <p align="center"><%= link_to "Delete Photo", photo_path(@photo),
+                             :data => {:confirm => "You sure?",
+                                       :method => "delete"} %></p>
+  </div>
+
+</div>

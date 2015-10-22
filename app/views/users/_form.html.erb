@@ -4,8 +4,10 @@
   <%= form_for [@photo, @user] do |f| %>
     <%= f.label :username %><br>
     <%= f.text_field :username %>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+    <%= f.label :password %><br>
+    <%= f.text_field :password %>
 
     <p><%= f.submit %></p>
   <% end %>

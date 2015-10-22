@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
   def new
-    @photo = Post.find(params[:post_id])
-    @user = @photo.tags.new
+    @photo = Photo.find(params[:photo_id])
+    @user = @photo.users.new
   end
   def create
-    @photo = Post.find(params[:post_id])
-    @user = @photo.tags.new(tag_params)
+    @photo = Photo.find(params[:photo_id])
+    @user = @photo.users.new(user_params)
     if @user.save
-      redirect_to post_path(@photo)
+      redirect_to photo_path(@photo)
     else
       render :new
     end
@@ -18,10 +18,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    @photo = Post.find(params[:post_id])
-    @user = @photo.tags.new(tag_params)
-    if @user.update(tag_params)
-      redirect_to post_path(@photo)
+    @photo = Photo.find(params[:photo_id])
+    @user = @photo.users.new(user_params)
+    if @user.update(user_params)
+      redirect_to photo_path(@photo)
     else
       render:new
     end
@@ -32,14 +32,14 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @photo = Post.find(params[:post_id])
-    @user = @photo.tags.new(tag_params)
+    @photo = Photo.find(params[:photo_id])
+    @user = @photo.users.new(user_params)
     @user.destroy
-    redirect_to posts_path
+    redirect_to photos_path
   end
 private
-  def tag_params
-    params.require(:user).permit(:name)
+  def user_params
+    params.require(:user).permit(:username, :user_ids => [])
   end
 
 

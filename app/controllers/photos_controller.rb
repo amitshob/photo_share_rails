@@ -13,6 +13,9 @@ class PhotosController < ApplicationController
   def new
     @photo = Photo.new
     render :new
+    @all_users = User.all
+    
+
   end
 
   def create

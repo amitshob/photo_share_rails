@@ -1,0 +1,23 @@
+<div class=container>
+  <div class = "column-center">
+
+    <h4> Photos for <%= @user.name %> /h4><hr>
+    <ul>
+      <% @user.photos.each do |post| %>
+        <li>
+          <%= link_to post.title, photo_path(photo) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class ="column-left">
+    <div class ="col-md-4">
+
+    </div>
+  </div>
+  <div class = "column-right">
+    <p align="center"><%= link_to "Edit Tag", edit_user_path(@user) %></p>
+    <p align="center"><%= link_to "Delete Tag", user_path(@user),
+                             :data => {:confirm => "You sure?",
+                                       :method => "delete"} %></p>
+  </div>
