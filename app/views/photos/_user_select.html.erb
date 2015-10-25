@@ -1,4 +1,10 @@
-<%= form_tag users_path, :controller => 'users', :action => 'townsearch', :method => 'get' do %>
-    <%= select_tag :county, params[:county] %>
-    <%= submit_tag 'search'%>
- <% end %>
+<div class= "control-group">
+  <%= form_for @photo, {multipart: true} do |f| %>
+    <%= f.label :users %>
+    <div class = "controls">
+      
+
+    </div>
+      <%= f.submit  %>
+  <% end %>
+</div>

@@ -1,25 +1,18 @@
   <div class="container">
       <div class="column-center">
         <%= form_for @photo, {multipart: true} do |f| %>
-          <%= f.label :image %>
-          <%= f.file_field :image %>
-          <%= f.label :title %>
-          <%= f.text_field :title %>
-          <%= f.label :description %>
+          <%= f.label :image %><br>
+          <%= f.file_field :image %><br>
+          <%= f.label :title %><br>
+          <%= f.text_field :title %><br>
+          <%= f.label :description %><br>
           <%= f.text_field :description %>
-          <div class="form-group">
-            <!-- creates a collection of check boxes for all Tag models with value of tag.id and label of tag.name -->
-            <strong>Add Tags:</strong><br>
-            <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |b| %>
-              <%= b.label { b.check_box } %>
-              <%= b.object.name %>
-            <% end %>
-          </div>
+
           <%= f.submit  %>
         <% end %>
       </div>
     <div class="column-left">
-      <%= link_to "Upload your image", new_photo_path %>
+
 
 
     </div>

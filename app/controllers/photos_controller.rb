@@ -13,8 +13,8 @@ class PhotosController < ApplicationController
   def new
     @photo = Photo.new
     render :new
-    @all_users = User.all
     
+
 
   end
 
@@ -31,7 +31,7 @@ class PhotosController < ApplicationController
 
   private
   def photo_params
-    params.require(:photo).permit(:title, :description, :image)
+    params.require(:photo).permit(:title, :description, :image, :user_id)
   end
 
 end
