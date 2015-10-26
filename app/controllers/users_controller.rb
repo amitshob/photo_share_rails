@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   def create
     @photo = Photo.find(params[:photo_id])
     @user = @photo.users.new(user_params)
-    if @user.save
+    if @user.valid?
+     @photo.users << @user
       redirect_to photo_path(@photo)
     else
       render :new
@@ -28,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @user = User.find(params[:id])
   end
 
   def destroy
@@ -39,7 +40,8 @@ class UsersController < ApplicationController
   end
 private
   def user_params
-    params.require(:user).permit(:username, :user_ids => [], :photo_id)
+    # params.require(:user).permit(:username, :user_ids => [], :photo_id)
+    params.require(:user).permit(:username, :user_ids, :photo_id)
   end
 
 

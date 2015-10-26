@@ -1,10 +1,9 @@
 <div class= "control-group">
-  <%= form_for @photo, {multipart: true} do |f| %>
-    <%= f.label :users %>
+  <%= form_tag share_photo_photo_path(@photo) do |f| %>
+    <label> Users </label>
     <div class = "controls">
-      
-
+      <%= select_tag :user_id, options_for_select(User.all.map{|u| [u.username, u.id]}) %>
     </div>
-      <%= f.submit  %>
+      <%= submit_tag "Add"  %>
   <% end %>
 </div>

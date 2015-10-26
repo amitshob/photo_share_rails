@@ -1,11 +1,12 @@
 <div class=container>
   <div class = "column-center">
 
-    <h4> Photos for <%= @user.name %> /h4><hr>
+    <h4> Photos for <%= @user.username %> /h4><hr>
     <ul>
-      <% @user.photos.each do |post| %>
+       <% @user.photos.uniq.each do |photo| %>
         <li>
-          <%= link_to post.title, photo_path(photo) %>
+          <%= link_to photo.title, photo_path(photo) %>
+          <%= image_tag photo.image.url(:thumb) %>
         </li>
       <% end %>
     </ul>

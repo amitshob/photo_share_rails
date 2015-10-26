@@ -8,12 +8,19 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :photos do
-    resources :users
-  end
+   resources :users
+     member do
+       post :share_photo
+     end
+   end
+
+
 
   resources :users do
-    resources :photos    
+    resources :photos
   end
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

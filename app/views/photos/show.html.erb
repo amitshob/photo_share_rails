@@ -10,9 +10,9 @@
 
   <div class = "column-right">
     <%= render "user_select"%>
-    <% @photo.users.each do |user| %>
+     <% @photo.users.uniq.each do |user| %>
       <li>
-        <% user.username %>
+        <%= link_to user.username ,user_path(user)  %>
       </li>
     <% end %>
 

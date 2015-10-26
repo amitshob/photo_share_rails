@@ -13,9 +13,6 @@ class PhotosController < ApplicationController
   def new
     @photo = Photo.new
     render :new
-    
-
-
   end
 
   def create
@@ -26,6 +23,13 @@ class PhotosController < ApplicationController
       render :new
     end
   end
+  
+  def share_photo
+   @photo = Photo.find(params[:id])
+   @user = User.find(params[:user_id])
+   @photo.users << @user
+   redirect_to :back
+ end
 
 
 
